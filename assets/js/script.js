@@ -2,6 +2,10 @@ var cityInput = document.getElementById("cityInput");
 var submitBtn = document.getElementById("submitBtn");
 var apiKey = "4ac1d8bc8e944a8ebd3d136661e206ba";
 
+if (localStorage.getItem("city") !== null) {
+    renderRecents();
+}
+
 function search() {
 
     var day1 = document.getElementById("day1");
@@ -22,7 +26,8 @@ function search() {
     if (localStorage.getItem("city") === null) {
         localStorage.setItem("city", JSON.stringify([]));
     }
-
+    
+   
 
     var cityArray = JSON.parse(localStorage.getItem("city"));
     cityArray.push(saveCity);
